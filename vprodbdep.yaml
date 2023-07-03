@@ -13,7 +13,7 @@ spec:
     metadata:
       labels:
         app: vprodb
-  spec:
+    spec:
       containers:
       - name: vprodb
         image: nisan94/vprofiledb
@@ -21,11 +21,11 @@ spec:
         - mountPath: /var/lib/mysql
           name: vpro-db-data
         ports:
-        - name: vprodb-port
-        - containerPort: 3306
+          - name: vprodb-port
+            containerPort: 3306
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
             secretKeyRef:
               name: app-secret
               key: db-pass
